@@ -37,8 +37,7 @@
 	    	<li class="nav-item">
 	    		<a class="nav-link" href="#">REGISTRO<span class="sr-only">(current)</span></a>
 	    	</li>
-	    </ul>
-	    
+	    </ul>   
 	  </div>
 	</nav>
 	<footer>
