@@ -1,0 +1,52 @@
+{% extends 'master.twig' %}
+
+{% block list_films %}
+{% if names is not empty %}
+ 
+    {% for film in films %}
+   		<img id='poster' src= {{film.poster}}>
+    	<table id='film'>
+		    <tr>
+		        <td>Titulo:</td>
+		        <td>{{film.title}}</td>
+		    </tr>
+		    <tr>
+		        <td>Año:</td>
+		        <td>{{film.year}}</td>
+		    </tr>
+		    <tr>
+		        <td>Duración:</td>
+		        <td>{{film.runtime}}</td>
+		    </tr>
+		    <tr>
+		        <td>Genero:</td>
+		        <td>{{film.genre}}</td>
+		    </tr>
+		    <tr>
+		        <td>Director:</td>
+		        <td>{{film.director}}</td>
+		    </tr>
+		    <tr>
+		        <td>Actores:</td>
+		        <td>{{film.actors}}</td>
+		    </tr>
+		    <tr>
+		        <td>Lenguaje:</td>
+		        <td>{{film.language}}</td>
+		    </tr>
+		    <tr>
+		        <td>País:</td>
+		        <td>{{film.country}}</td>
+		    </tr>
+		    <tr>
+		        <td>Premios:</td>
+		        <td>{{film.awards}}</td>
+		    </tr>
+		    <tr>
+		        <td>Descripción:</td>
+		        <td>{{film.plot}}</td>
+		    </tr>
+		</table>
+    {% endfor %}
+{% endif %}
+{% endblock %}
