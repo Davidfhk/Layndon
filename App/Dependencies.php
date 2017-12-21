@@ -21,13 +21,13 @@ $container['db'] = function ($c){
 $container['LayndonModel'] = function ($c){
 	return new \App\layndon\LayndonModel(
 		$c['ConsultFilmsHandler']
-	)
+	);
 };
 
 $container['LayndonController'] = function ($c){
 	return new \App\layndon\LayndonController(
 		$c['LayndonController']
-	)
+	);
 };
 
 $container['ConsultFilmsHandler'] = function ($c){
@@ -37,7 +37,7 @@ $container['ConsultFilmsHandler'] = function ($c){
 };
 
 $container['view'] = function ($c){
-	$view = new \Slim\Views\Twig(__DIR__ . '/layndon/templates/admin/',[
+	$view = new \Slim\Views\Twig(__DIR__ . '/layndon/templates/',[
 		'cache' => false]);
 
 	$view->addExtension(new \Slim\Views\TwigExtension(
