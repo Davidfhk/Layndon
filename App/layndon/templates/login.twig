@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  {% block head %}
   <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../css/index.css">
+  <link rel="stylesheet" type="text/css" href="../../App/layndon/css/index.css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  {% endblock %}
 </head>
 <body>
   <div class="container">
     <form class="form-signin">
-        <img id="logo" src="../img/cine.jpg">
+        <img id="logo" src="../../App/layndon/img/cine.jpg">
         <h2 class="form-signin-heading">LAYNDON</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email">
