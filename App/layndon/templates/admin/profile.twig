@@ -1,16 +1,20 @@
 {% extends 'admin/master.twig' %}
 
 {% block list_films %}
-{% if names is not empty %}
+{% if films is not empty %}
  
     {% for film in films %}
-   		<img id='poster' src= {{film.poster}}>
+
+
+   		{# <img id='poster' src= {{film.image}}> #}
     	<table id='film'>
 		    <tr>
+		    	<td><img id='poster' src= {{film.image}}></td>
 		        <td>Titulo:</td>
 		        <td>{{film.title}}</td>
+		        <td><a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">BORRAR</a></td>
 		    </tr>
-		    <tr>
+		   {#  <tr>
 		        <td>Año:</td>
 		        <td>{{film.year}}</td>
 		    </tr>
@@ -45,7 +49,7 @@
 		    <tr>
 		        <td>Descripción:</td>
 		        <td>{{film.plot}}</td>
-		    </tr>
+		    </tr> #}
 		</table>
     {% endfor %}
 {% endif %}
