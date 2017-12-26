@@ -11,34 +11,41 @@ class QueriesFilms
 		$this->db = $db;
 	}
 
-	public function setFilm (array $film)
+	public function setFilm ($film)
 	{
-		$this->db->table('layndon-v2.films AS film')
+		$this->db->table('films')
 			->insert([
-				'film.title' => $film['Title'],
-				'film.year'	=> $film['Year'],
-				'film.runtime' => $film['Runtime'],
-				'film.genre'	=> $film['Genre'],
-				'film.director' => $film['Director'],
-				'film.actors' => $film['Actors'],
-				'film.language' => $film['Language'],
-				'film.country' => $film['Country'],
-				'film.awards' => $film['Awards'],
-				'film.plot' => $film['Plot'],
-				'film.image' => $film['image']
+				'title' => $film['Title'],
+				'year'	=> $film['Year'],
+				'runtime' => $film['Runtime'],
+				'genre'	=> $film['Genre'],
+				'director' => $film['Director'],
+				'actors' => $film['Actors'],
+				'language' => $film['Language'],
+				'country' => $film['Country'],
+				'awards' => $film['Awards'],
+				'plot' => $film['Plot'],
+				'image' => $film['Poster']
 			]);
 	}
 
 	public function getFilms ()
 	{
-		$films = $this->db->table('layndon-v2.films AS film')
+		$films = $this->db->table('films')
 				->select('*')
 	           	->get()
-	            
-	            ->map(function ($item, $key) {
-	                return (array) $item;
-	            })
-            	->all();
+	           	->map(function ($item, $key) {
+	                  return (array) $item;
+	              })
+            	  ->all();
         return $films;
+
+	}
+
+	public function deleteFilm ($id)
+	{
+		$this->db->table('films')
+			->where('id_film','=',$id)
+			->delete();
 	}
 }
