@@ -2,22 +2,21 @@
 
 $app->group('/layndon', function (){
 
-	$this->get('', function($request, $response, $args){
-    	return $this->view->render($response, 'index.twig');
-	});
+	$this->get('', 'LayndonController:home')->setName('home');
 
-	$this->get('/login', function($request, $response, $args){
-	    return $this->view->render($response, 'login.twig');
-	})->setName('login');
+	$this->group('/login', function (){
+
+		$this->get('', 'LayndonController:login')->setName('login');
+		$this->post('', 'LayndonController:check')->setName('check');
+	});
 
 	$this->group('/admin', function (){
 
-		$this->get('', function($request,$response, $args){
-			return $this->view->render($response, 'admin/profile.twig');
-		})->setName('admin');
+		$this->get('', 'LayndonController:adminProfile')->setName('admin');
+		$this->post('', 'LayndonController:addFilm')->setName('add-film');
+		$this->get('/{id}', 'LayndonController:deleteFilm')->setName('delete-film');
 	});
 });
-
 
 
 
