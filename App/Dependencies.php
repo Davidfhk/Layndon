@@ -20,18 +20,21 @@ $container['db'] = function ($c){
 
 $container['LayndonModel'] = function ($c){
 	return new \App\layndon\LayndonModel(
-		$c['ConsultFilmsHandler']
+		$c['QueriesFilmsHandler'],
+		$c['OmdbHandler']
 	);
 };
 
 $container['LayndonController'] = function ($c){
 	return new \App\layndon\LayndonController(
-		$c['LayndonController']
+		$c['LayndonModel'],
+		$c['router'],
+		$c['view']
 	);
 };
 
-$container['ConsultFilmsHandler'] = function ($c){
-	return new \App\layndon\Handlers\ConsultFilmsHandler(
+$container['QueriesFilmsHandler'] = function ($c){
+	return new \App\layndon\Handlers\QueriesFilms(
 		$c['db']
 	);
 };
@@ -48,3 +51,10 @@ $container['view'] = function ($c){
 
 	return $view;
 };
+
+/* HANDLERS */
+
+$container['OmdbHandler'] = function ($c){
+	return new \App\layndon\Handlers\Omdb;
+};
+
