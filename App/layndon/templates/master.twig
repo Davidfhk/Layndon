@@ -13,7 +13,7 @@
 	{% endblock %}
 </head>
 <body>
-{% block list_films %}{% endblock %}
+
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	  <a class="navbar-brand" href="#">LAYNDON</a>
@@ -42,6 +42,9 @@
 	    </ul>   
 	  </div>
 	</nav>
+		<div class="row">
+			{% block list_films %}{% endblock %}
+		</div>
 	<footer>
 	{% block footer %}
 		<p>Creado por David Ignacio Martos</p>

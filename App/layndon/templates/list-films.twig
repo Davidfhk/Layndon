@@ -1,0 +1,12 @@
+{% extends 'master.twig' %}
+{% block list_films %}
+{% if films is not empty %}
+ 
+    {% for film in films %}
+    	<div class="col-3">
+    		<img id='poster' src= {{film.image}}>
+    		<p id="date-film">{{film.date}}</p>
+    	</div>
+    {% endfor %}
+{% endif %}
+{% endblock %}
