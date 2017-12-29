@@ -21,11 +21,16 @@ class LayndonModel
 		}
 	}
 
-	public function setFilm ($name)
+	public function setFilm ($name,$date)
 	{
 		$film = $this->omdb->searchFilm($name);
 		
-		$this->queries->setFilm($film);
+		if ($date == null)
+		{
+			$date = 'PROXIMAMENTE';
+		}
+
+		$this->queries->setFilm($film,$date);
 
 	}
 
