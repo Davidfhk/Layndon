@@ -11,7 +11,7 @@ class QueriesFilms
 		$this->db = $db;
 	}
 
-	public function setFilm ($film)
+	public function setFilm ($film,$date)
 	{
 		$this->db->table('films')
 			->insert([
@@ -25,7 +25,8 @@ class QueriesFilms
 				'country' => $film['Country'],
 				'awards' => $film['Awards'],
 				'plot' => $film['Plot'],
-				'image' => $film['Poster']
+				'image' => $film['Poster'],
+				'date'	=> $date,
 			]);
 	}
 
