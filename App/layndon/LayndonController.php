@@ -24,7 +24,8 @@ class LayndonController
 
 	public function home (Request $request, Response $response, $args)
 	{
-		return $this->view->render($response, 'index.twig');
+		$films = $this->model->getFilms();
+		return $this->view->render($response, 'list-films.twig',['films'=>$films]);
 	}
 
 	public function login (Request $request, Response $response, $args)
@@ -52,7 +53,8 @@ class LayndonController
 	public function addFilm (Request $request, Response $response, $args)
 	{
      	$name = $_POST['film'];
-     	$this->model->setFilm($name);
+     	$date = $_POST['date-film'];
+     	$this->model->setFilm($name,$date);
 
      	return $response->withRedirect($this->route->pathFor('admin'));		
 	}
