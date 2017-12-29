@@ -12,7 +12,8 @@
 		    	<td><img id='poster' src= {{film.image}}></td>
 		        <td>Titulo:</td>
 		        <td>{{film.title}}</td>
-		        <td><a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">BORRAR</a></td>
+		        <td id="delete-film
+		        "><a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">BORRAR</a></td>
 		    </tr>
 		   {#  <tr>
 		        <td>Año:</td>
