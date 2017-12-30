@@ -2,18 +2,24 @@
 
 {% block list_films %}
 {% if films is not empty %}
- 
-    {% for film in films %}
-
-
+ <table style="border:solid;width:100%;background-color:white" {# class="list-group" #} id="film">
+ 	{% for film in films %}
    		{# <img id='poster' src= {{film.image}}> #}
-    	<table id='film'>
-		    <tr>
-		    	<td><img id='poster' src= {{film.image}}></td>
-		        <td>Titulo:</td>
-		        <td>{{film.title}}</td>
-		        <td id="delete-film
-		        "><a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">BORRAR</a></td>
+		    <tr style="border:solid" {# class="list-group-item" #}>
+		    	<td style="border:solid" ><img id='poster' src= {{film.image}}></td>
+		        <td style="border:solid" >Titulo:</td>
+		        <td style="border:solid" >{{film.title}}</td>
+		        <td style="border:solid" id="delete-film">
+		        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
+		        		<img id="see-image" src="../../App/layndon/img/lupa.png">
+		        	</a>
+		        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
+		        		<img id="edit-image" src="../../App/layndon/img/editar.png">
+		        	</a>
+		        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
+		        		<img id="delete-image" src="../../App/layndon/img/eliminar.png">
+		        	</a>
+		        </td>
 		    </tr>
 		   {#  <tr>
 		        <td>Año:</td>
@@ -51,7 +57,7 @@
 		        <td>Descripción:</td>
 		        <td>{{film.plot}}</td>
 		    </tr> #}
-		</table>
     {% endfor %}
+ </table>  
 {% endif %}
 {% endblock %}
