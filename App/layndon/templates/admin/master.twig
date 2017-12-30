@@ -15,10 +15,10 @@
 <body>
 <div class="container">
     <div class="row {# align-items-center #}">
-        <div style="background-color:red" class="col-8">
+        <div style="background-color:red" class="col-sm-12 col-md-6">
             {% block list_films %}{% endblock %}
         </div>
-        <div style="background-color:blue" class="col-4">
+        <div style="background-color:blue" class="col-sm-12 col-md-6">
         <form class="form-signin" method="post" action="{{ path_for ('add-film') }}">
             <img id="logo" src="../../App/layndon/img/cine.jpg">
             <h2 class="form-signin-heading">LAYNDON</h2>
@@ -29,7 +29,7 @@
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Añadir">
         </form> 
         </div>
-        <div style="background-color:green" class="col-3">VOTACIONES</div>
+        <div style="background-color:green" class="col-12">VOTACIONES</div>
     </div>  
  
   </div>
