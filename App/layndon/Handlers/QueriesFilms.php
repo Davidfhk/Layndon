@@ -49,4 +49,17 @@ class QueriesFilms
 			->where('id_film','=',$id)
 			->delete();
 	}
+
+	public function getFilm ($id)
+	{
+		$films = $this->db->table('films')
+				->where('id_film','=',$id)
+				->select('*')
+	           	->get()
+	           	->map(function ($item, $key) {
+	                  return (array) $item;
+	              })
+            	  ->all();
+        return $films;
+	}
 }
