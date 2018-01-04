@@ -1,0 +1,33 @@
+/* Details film */
+
+body{
+  background-color: black;
+}
+
+#poster{
+  /*display: flex;*/
+  align-items: left;
+}
+
+#film{
+  align-items: left;
+}
+
+#film td{
+  color: white;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #202020;
+    color: white;
+    text-align: center;
+}
+
+footer p{
+  font-style: italic;
+  font-size: 10px;
+}
