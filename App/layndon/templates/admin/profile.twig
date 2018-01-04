@@ -1,63 +1,36 @@
 {% extends 'admin/master.twig' %}
 
 {% block list_films %}
-{% if films is not empty %}
- <table style="border:solid;width:100%;background-color:white" {# class="list-group" #} id="film">
- 	{% for film in films %}
-   		{# <img id='poster' src= {{film.image}}> #}
-		    <tr style="border:solid" {# class="list-group-item" #}>
-		    	<td style="border:solid" ><img id='poster' src= {{film.image}}></td>
-		        <td style="border:solid" >Titulo:</td>
-		        <td style="border:solid" >{{film.title}}</td>
-		        <td style="border:solid" id="delete-film">
-		        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
-		        		<img id="see-image" src="../../App/layndon/img/lupa.png">
-		        	</a>
-		        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
-		        		<img id="edit-image" src="../../App/layndon/img/editar.png">
-		        	</a>
-		        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
-		        		<img id="delete-image" src="../../App/layndon/img/eliminar.png">
-		        	</a>
-		        </td>
-		    </tr>
-		   {#  <tr>
-		        <td>Año:</td>
-		        <td>{{film.year}}</td>
-		    </tr>
-		    <tr>
-		        <td>Duración:</td>
-		        <td>{{film.runtime}}</td>
-		    </tr>
-		    <tr>
-		        <td>Genero:</td>
-		        <td>{{film.genre}}</td>
-		    </tr>
-		    <tr>
-		        <td>Director:</td>
-		        <td>{{film.director}}</td>
-		    </tr>
-		    <tr>
-		        <td>Actores:</td>
-		        <td>{{film.actors}}</td>
-		    </tr>
-		    <tr>
-		        <td>Lenguaje:</td>
-		        <td>{{film.language}}</td>
-		    </tr>
-		    <tr>
-		        <td>País:</td>
-		        <td>{{film.country}}</td>
-		    </tr>
-		    <tr>
-		        <td>Premios:</td>
-		        <td>{{film.awards}}</td>
-		    </tr>
-		    <tr>
-		        <td>Descripción:</td>
-		        <td>{{film.plot}}</td>
-		    </tr> #}
-    {% endfor %}
- </table>  
-{% endif %}
+	{% if films is not empty %}
+		<table style="border:solid;width:100%;background-color:white" {# class="list-group" #} id="films">
+			{% for film in films %}
+			    <tr style="border:solid">
+			    	<td style="border:solid" ><img id='poster' src= {{film.image}}></td>
+			        <td style="border:solid" >Titulo:</td>
+			        <td style="border:solid" >{{film.title}}</td>
+			        <td style="border:solid">
+			        	<a href="{{ path_for ('details-film',{'id': film.id_film}) }}">
+			        		<img id="see-image" src="../../../App/layndon/img/lupa.png">
+			        	</a>
+			        	<a href="{{ path_for ('edit-film',{'id': film.id_film}) }}">
+			        		<img id="edit-image" src="../../../App/layndon/img/editar.png">
+			        	</a>
+			        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
+			        		<img id="delete-image" src="../../../App/layndon/img/eliminar.png">
+			        	</a>
+			        </td>
+			    </tr>
+			{% endfor %}
+		</table>  
+	{% endif %}
 {% endblock %}
+
+{% block detail_film %}
+	{% if film is not empty %}
+		<img id='poster' src= {{film.image}}>
+		<table style="border:solid;width:100%;background-color:white" {# class="list-group" #} id="film">
+			
+		</table>
+	{% endif %}
+{% endblock %}
+
