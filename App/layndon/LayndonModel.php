@@ -43,4 +43,9 @@ class LayndonModel
 	{
 		$this->queries->deleteFilm($id);
 	}
+
+	public function detailsFilm ($id)
+	{
+		return $this->queries->getFilm($id);
+	}
 }
