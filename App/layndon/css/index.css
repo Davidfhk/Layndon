@@ -16,6 +16,10 @@ body{
   margin:0 auto 0 auto
 }
 
+#films div{
+  cursor:pointer;
+}
+
 
 footer{
     position: fixed;
