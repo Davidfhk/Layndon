@@ -6,10 +6,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../App/layndon/css/index.css">
+	{% block style %}
+	{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../App/layndon/js/film.js"></script>
 	{% endblock %}
 </head>
 <body>
@@ -43,8 +45,11 @@
 	  </div>
 	</nav>
 
-	<div class="row">
+	<div id="films" class="row">
 		{% block list_films %}{% endblock %}
+	</div>
+	<div id="film" class="row">
+		{% block film %}{% endblock %}
 	</div>
 	<br>
 	<footer>
