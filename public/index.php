@@ -4,6 +4,8 @@ namespace App;
 
 require("../vendor/autoload.php");
 
+session_start();
+
 $configuration = [
 	'settings' => [
 		'displayErrorDetails' => true
