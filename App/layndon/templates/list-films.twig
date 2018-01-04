@@ -1,9 +1,15 @@
 {% extends 'master.twig' %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="../App/layndon/css/index.css">
+{% endblock %}
+
 {% block list_films %}
 {% if films is not empty %}
  
     {% for film in films %}
-    	<div class="col-sm-12 col-md-6 col-xl-3">
+    	<div id="{{film.id_film}}" class="col-sm-12 col-md-6 col-xl-3">
+    		<a href="{{ path_for ('details-film',{'id': film.id_film}) }}"></a>
     		<img id='poster' src= {{film.image}}>
     		<p id="date-film">{{film.date}}</p>
     	</div>
