@@ -71,7 +71,7 @@ class LayndonController
 	{
 		$id = $args['id'];
 		$this->model->deleteFilm($id);
-		return $response->withRedirect($this->route->pathFor('admin'));
+		// return $response->withRedirect($this->route->pathFor('admin'));
 	}
 
 	public function detailsFilm (Request $request, Response $response, $args)
