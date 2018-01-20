@@ -25,12 +25,17 @@ class LayndonModel
 	{
 		$film = $this->omdb->searchFilm($name);
 		
+		// die(var_dump($film));
+
 		if ($date == null)
 		{
 			$date = 'PROXIMAMENTE';
 		}
-
-		$this->queries->setFilm($film,$date);
+		if (!in_array("Movie not found!", $film))
+		{
+			$this->queries->setFilm($film,$date);
+		}
+		
 
 	}
 
