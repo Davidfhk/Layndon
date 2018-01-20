@@ -1,0 +1,14 @@
+{% extends 'admin/master.twig' %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="../../App/layndon/css/index.css">
+{% endblock %}
+
+{% block detail-film %}
+	{% if film is not empty %}
+		<img id='poster' src= {{film.image}}>
+		<table style="border:solid;width:100%;background-color:white" {# class="list-group" #} id="film">
+			
+		</table>
+	{% endif %}
+{% endblock %}
