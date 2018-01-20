@@ -17,8 +17,8 @@ $app->group('/layndon', function (){
 		$this->group('/dashboard',function (){
 			$this->get('', 'LayndonController:adminProfile')->setName('admin');
 			$this->post('', 'LayndonController:addFilm')->setName('add-film');
-			$this->get('/delete/{id}', 'LayndonController:deleteFilm')->setName('delete-film');
-			$this->get('/edit/{id}', 'LayndonController:editFilm')->setName('edit-film');
+			$this->delete('/delete/{id}', 'LayndonController:deleteFilm')->setName('delete-film');
+			$this->put('/edit/{id}', 'LayndonController:editFilm')->setName('edit-film');
 		});
 	});
 
