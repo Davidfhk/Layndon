@@ -6,15 +6,19 @@ body{
 	width: 50px;
 }
 
-#delete-film{
+/*#delete-film{
 	text-align: right;
 }
 
-#delete-image,#see-image{
+.delete-image,.see-image{
   width: 20px;
 }
-#edit-image{
+.edit-image{
 	width: 40px;
+}*/
+input{
+	width: 20px;
+	text-align: right;
 }
 
 #logo{
