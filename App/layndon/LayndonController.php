@@ -24,9 +24,9 @@ class LayndonController
 
 	public function home (Request $request, Response $response, $args)
 	{
-		session_destroy();
+		// session_destroy();
 		$films = $this->model->getFilms();
-		return $this->view->render($response, 'list-films.twig',['films'=>$films]);
+		return $this->view->render($response, 'list-films.twig',['films'=>$films,'session' => $_SESSION['login']]);
 	}
 
 	public function login (Request $request, Response $response, $args)
@@ -40,7 +40,7 @@ class LayndonController
 		$_SESSION['login'] = $user;
 		if($_SESSION['login'] == 'admin')
 		{
-			return $response->withRedirect($this->route->pathFor('admin'));
+			return $response->withRedirect($this->route->pathFor('home'));
 		}else{
 			return $response->withRedirect($this->route->pathFor('login'));	
 		}
@@ -79,6 +79,12 @@ class LayndonController
 		$id = $args['id'];
 		$film = $this->model->detailsFilm($id);
 		// die(var_dump($film));
-		return $this->view->render($response,'film.twig',['film'=>$film]);
+		return $this->view->render($response,'film.twig',['film'=>$film,'session'=>$_SESSION['login']]);
+	}
+
+	public function logOut (Request $request, Response $response, $args)
+	{
+		session_destroy();
+		return $response->withRedirect($this->route->pathFor('home'));
 	}
 }
