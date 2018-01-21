@@ -33,11 +33,6 @@ $container['LayndonController'] = function ($c){
 	);
 };
 
-$container['QueriesFilmsHandler'] = function ($c){
-	return new \App\layndon\Handlers\QueriesFilms(
-		$c['db']
-	);
-};
 
 $container['view'] = function ($c){
 	$view = new \Slim\Views\Twig(__DIR__ . '/layndon/templates/',[
@@ -58,3 +53,8 @@ $container['OmdbHandler'] = function ($c){
 	return new \App\layndon\Handlers\Omdb;
 };
 
+$container['QueriesFilmsHandler'] = function ($c){
+	return new \App\layndon\Handlers\QueriesFilms(
+		$c['db']
+	);
+};
