@@ -3,11 +3,7 @@
 $app->group('/layndon', function (){
 
 	$this->get('', 'LayndonController:home')->setName('home');
-
-	// $this->group('/login', function (){
-		
-		
-	// });
+	$this->get('/', 'LayndonController:logOut')->setName('log-out');
 
 	$this->group('/admin', function (){
 
