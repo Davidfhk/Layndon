@@ -79,7 +79,15 @@ class LayndonController
 		$id = $args['id'];
 		$film = $this->model->detailsFilm($id);
 		// die(var_dump($film));
-		return $this->view->render($response,'film.twig',['film'=>$film,'session'=>$_SESSION['login']]);
+		if($_SESSION)
+		{
+			return $this->view->render($response,'film.twig',['film'=>$film,'session'=>$_SESSION['login']]);
+
+		}else{
+
+			return $this->view->render($response,'film.twig',['film'=>$film]);
+		}
+		
 	}
 
 	public function logOut (Request $request, Response $response, $args)
