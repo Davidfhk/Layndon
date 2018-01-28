@@ -9,7 +9,7 @@ $('.delete-image').click(function(e){
 	url: endpoint,
 	type:'DELETE'	  
   }).done( function() {
-    	window.location.reload()
+    	$('.'+id_film).remove();
 	})
 });
 
