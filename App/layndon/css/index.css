@@ -13,7 +13,8 @@ body{
 
 #poster{
   display:block;
-  margin:0 auto 0 auto
+  margin:0 auto 0 auto;
+  width: 90%; height: 90%;
 }
 
 #films div{
@@ -28,11 +29,15 @@ footer{
     width: 100%;
     background-color: #202020;
     color: white;
-    text-align: center;
+    
 }
 
 footer p{
   font-style: italic;
   font-size: 10px;
+  text-align: center;
 }
 
+footer .social-button{
+  text-align: center;
+}
