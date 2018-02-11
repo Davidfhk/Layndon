@@ -13,7 +13,7 @@ class LayndonController
 	private $route;
 	private $view;
 
-    public function __construct(Model $model,$route,$view/*,array  $settings*/)
+    public function __construct(Model $model,$route,$view)
     {
 
 		$this->model = $model;
@@ -24,9 +24,17 @@ class LayndonController
 
 	public function home (Request $request, Response $response, $args)
 	{
-		// session_destroy();
+		
 		$films = $this->model->getFilms();
-		return $this->view->render($response, 'list-films.twig',['films'=>$films,'session' => $_SESSION['login']]);
+
+		if (isset($_SESSION['login'])) {
+
+			return $this->view->render($response, 'list-films.twig',['films'=>$films,'session' => $_SESSION['login']]);
+		}else{
+
+			return $this->view->render($response, 'list-films.twig',['films'=>$films]);
+		}
+		
 	}
 
 	public function login (Request $request, Response $response, $args)
@@ -37,7 +45,9 @@ class LayndonController
 	public function check (Request $request, Response $response, $args)
 	{
 		$user = $this->model->checkLogin();
+
 		$_SESSION['login'] = $user;
+		
 		if($_SESSION['login'] == 'admin')
 		{
 			return $response->withRedirect($this->route->pathFor('home'));
@@ -71,15 +81,15 @@ class LayndonController
 	{
 		$id = $args['id'];
 		$this->model->deleteFilm($id);
-		// return $response->withRedirect($this->route->pathFor('admin'));
+
 	}
 
 	public function detailsFilm (Request $request, Response $response, $args)
 	{
 		$id = $args['id'];
 		$film = $this->model->detailsFilm($id);
-		// die(var_dump($film));
-		if($_SESSION)
+
+		if(isset($_SESSION['login']))
 		{
 			return $this->view->render($response,'film.twig',['film'=>$film,'session'=>$_SESSION['login']]);
 
@@ -95,4 +105,5 @@ class LayndonController
 		session_destroy();
 		return $response->withRedirect($this->route->pathFor('home'));
 	}
+
 }
