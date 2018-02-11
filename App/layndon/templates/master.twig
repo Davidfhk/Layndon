@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	{% block style %}
 	{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -70,7 +71,15 @@
 	</div>
 	<footer>
 	{% block footer %}
-		<p>Creado por David Ignacio Martos</p>
+		<div class="row">
+			<div class="author col-xs-3 col-sm-9 col-md-10">
+				<p>Creado por David Ignacio Martos</p>
+			</div>
+			<div class="social-button col-xs-3 col-sm-3 col-md-2">
+		  		<a href="https://www.facebook.com" class="fa fa-2x fa-facebook-square"></a>
+		  		<a href="https://www.twitter.com" class="fa fa-2x fa-twitter-square"></a>
+			</div>
+		</div>
 	{% endblock %}
 	</footer>
 </body>
