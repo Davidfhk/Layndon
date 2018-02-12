@@ -22,9 +22,8 @@ body{
 }
 
 
-footer{
-    position: fixed;
-    left: 0;
+.footer{
+    position: fixed;   
     bottom: 0;
     width: 100%;
     background-color: #202020;
@@ -32,7 +31,16 @@ footer{
     
 }
 
-footer p{
+.footer-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.footer-row p{
   font-style: italic;
   font-size: 10px;
   text-align: center;
