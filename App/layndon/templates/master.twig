@@ -69,18 +69,18 @@
 	<div id="film" class="row">
 		{% block film %}{% endblock %}
 	</div>
-	<footer>
+	<div class="container-fluid footer">
 	{% block footer %}
-		<div class="row">
-			<div class="author col-xs-3 col-sm-9 col-md-10">
+		<div class="row footer-row">
+			<div class="author">
 				<p>Creado por David Ignacio Martos</p>
 			</div>
-			<div class="social-button col-xs-3 col-sm-3 col-md-2">
+			<div class="social-button">
 		  		<a href="https://www.facebook.com" class="fa fa-2x fa-facebook-square"></a>
 		  		<a href="https://www.twitter.com" class="fa fa-2x fa-twitter-square"></a>
 			</div>
 		</div>
-	{% endblock %}
-	</footer>
+	{% endblock %}		
+	</div>
 </body>
 </html>
