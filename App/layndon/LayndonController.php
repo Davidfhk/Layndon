@@ -61,7 +61,7 @@ class LayndonController
 		if($_SESSION['login'] == 'admin')
 		{
 			$films = $this->model->getFilms();
-			return $this->view->render($response,'admin/profile.twig',['films'=>$films]);				
+			return $this->view->render($response,'admin/profile.twig',['films'=>$films, 'session' => $_SESSION['login']]);				
 		}else{
 			return $response->withRedirect($this->route->pathFor('login'));
 		}
