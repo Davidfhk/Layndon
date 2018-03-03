@@ -1,17 +1,17 @@
 {% extends 'master.twig' %}
 
-{% block style %}
+{% block css %}
 	<link rel="stylesheet" type="text/css" href="../../../App/layndon/css/film.css">
 {% endblock %}
 
 {% block film %}
  	
  		{% for details in film %}
- 			<div class="col-sm-12 col-md-6 col-xl-3">
- 				<img id='poster' src= {{details.image}}>
+ 			<div class="col-sm-12 col-md-4 col-xl-3">
+ 				<img id='poster' src= {{details.image}} class="img-fluid img-thumbnail">
  			</div>
- 			<div class="col-sm-12 col-md-6 col-xl-9">
- 				<table style="width:90%" class="list-group" id="film">
+ 			<div class="col-sm-12 col-md-8 col-xl-9">
+ 				<table class="list-group" id="film">
  					<tr>
  						<td>Titulo:</td>
  						<td>{{details.title}}</td>
@@ -53,6 +53,6 @@
 				        <td>{{details.plot}}</td>
 				    </tr>
 				</table>
-		</div>
+			</div>
     	{% endfor %}  			
 {% endblock %}
