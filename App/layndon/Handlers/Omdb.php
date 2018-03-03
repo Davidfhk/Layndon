@@ -11,7 +11,7 @@ class Omdb
 	{
 
 		$title =  str_replace(" ", "+", $filmName);
-		$film = "http://www.omdbapi.com/?t=". $title . "&apikey=d6b0fef7";
+		$film = "http://www.omdbapi.com/?t=". $title . "&apikey=21e37978";
 		$JSONfilms = file_get_contents($film);
 		$result = json_decode($JSONfilms,true);
 
