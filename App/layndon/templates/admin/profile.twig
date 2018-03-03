@@ -1,43 +1,46 @@
-{% extends 'admin/master.twig' %}
-{% block head %}
-    <title>Document</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../App/layndon/css/admin.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-	
+{% extends 'master.twig' %}
 
-{% endblock %}
-{% block list_films %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../../../App/layndon/css/admin.css">
+{% endblock %} 
+
+{% block admin %}
 	{% if films is not empty %}
-		<table style="border:solid;width:100%;background-color:white" {# class="list-group" #} id="films">
-			{% for film in films %}
-			    <tr class="{{film.id_film}}" style="border:solid">
-			    	<td style="border:solid" ><img id='poster' src= {{film.image}}></td>
-			        <td style="border:solid" >Titulo:</td>
-			        <td style="border:solid" >{{film.title}}</td>
-			        <td style="border:solid">
-			        	<input id="{{film.id_film}}" class="see-image" type="image" src="../../../App/layndon/img/lupa.png">
-			        	<input id="{{film.id_film}}" class="edit-image" type="image" src="../../../App/layndon/img/editar.png">
-			        	<input id="{{film.id_film}}" class="delete-image" type="image" src="../../../App/layndon/img/eliminar.png">
-{# 			        	<a href="{{ path_for ('details-film',{'id': film.id_film}) }}">
-			        		<img id="see-image" src="../../../App/layndon/img/lupa.png">
-			        	</a>
-			        	<a href="{{ path_for ('edit-film',{'id': film.id_film}) }}">
-			        		<img id="edit-image" src="../../../App/layndon/img/editar.png">
-			        	</a>
-			        	<a href="{{ path_for ('delete-film',{'id': film.id_film}) }}">
-			        		<img id="delete-image" src="../../../App/layndon/img/eliminar.png">
-			        	</a> #}
-			        </td>
-			    </tr>
-			{% endfor %}
-		</table>  
+		<div class="table-responsive">
+			<table class="table table-bordered bg-white table-sm" id="films">
+				<div class="row">
+					{% for film in films %}
+					    <tr class="{{film.id_film}}">
+					    	<td class="col-2"><img id='poster' src= {{film.image}} class="img-fluid"></td>
+					        <td class="col-2">Titulo:</td>
+					        <td class="col-3">{{film.title}}</td>
+					        <td class="col-3">
+					        	<input id="{{film.id_film}}" class="see-image" type="image" src="../../../App/layndon/img/lupa.png" width="25">
+					        	<input id="{{film.id_film}}" class="edit-image" type="image" src="../../../App/layndon/img/editar.png" width="25">
+					        	<input id="{{film.id_film}}" class="delete-image" type="image" src="../../../App/layndon/img/eliminar.png" width="25">
+					        </td>
+					    </tr>
+					{% endfor %}			
+				</div>
+			</table>
+		</div>			  
 	{% endif %}
+	<form  method="post" action="{{ path_for ('add-film') }}" class="form-inline justify-content-center flex-column flex-lg-row">
+		<div class="form-group my-2">
+			<label for="filmName" class="d-none d-md-block text-white" >PELICULA</label>
+			<input type="text" id="filmName" name="film" placeholder="Nombre de la pelicula" class="form-control mx-3" required="" autofocus="">
+		</div>
+		<div class="form-group my-2">
+			<label for="filmDate" class="d-none d-md-block text-white" >FECHA</label>
+			<input type="text" id="filmDate" name= "date-film" placeholder="Fecha de exposición" class="form-control mx-3">
+		</div>
+		<div class="form-group mx-3">
+			<input type="submit" value="Añadir" class="btn btn-success">
+		</div>
+	</form>	
 {% endblock %}
- {% block js %}
- 	<script type="text/javascript" src="../../../App/layndon/js/admin/admin.js"></script>
- {% endblock %}
+
+{% block js %}
+
+	<script type="text/javascript" src="../../../App/layndon/js/admin/admin.js"></script>
+{% endblock %}
