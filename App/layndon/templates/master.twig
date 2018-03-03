@@ -7,9 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	{% block style %}
+	{% block css %}
 	{% endblock %}
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../App/layndon/js/user/details-film.js"></script>
@@ -17,63 +18,71 @@
 </head>
 <body>
 
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  	<a class="navbar-brand" href="{{ path_for('home')}}">LAYNDON</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="navbar-collapse collapse" id="navbarNav">
+			    <ul class="navbar-nav">
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">PELICULAS<span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">VOTA</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">CONTACTO</a>
+			      </li>
+			    </ul>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <a class="navbar-brand" href="{{ path_for('home')}}">LAYNDON</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="navbar-collapse collapse" id="navbarNav">
-	    <ul class="navbar-nav">
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">PELICULAS<span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">VOTA</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">CONTACTO</a>
-	      </li>
-	    </ul>
+			   	{% if session == 'admin' %}
 
-	   	{% if session == 'admin' %}
+				   	<ul class="nav navbar-nav ml-auto">
+				    	<li class="nav-item">
+				    		<a class="nav-link" href="{{ path_for('admin') }}">ADMIN<span class="sr-only">(current)</span></a>
+				    	</li>
+				    	<li class="nav-item">
+				    		<a class="nav-link" href="{{ path_for('log-out') }}">LOG OUT<span class="sr-only">(current)</span></a>
+				    	</li>
+				    </ul>
 
-		   	<ul class="nav navbar-nav ml-auto">
-		    	<li class="nav-item">
-		    		<a class="nav-link" href="{{ path_for('admin') }}">ADMIN<span class="sr-only">(current)</span></a>
-		    	</li>
-		    	<li class="nav-item">
-		    		<a class="nav-link" href="{{ path_for('log-out') }}">LOG OUT<span class="sr-only">(current)</span></a>
-		    	</li>
-		    </ul>
+			  	{% else %}
 
-	  	{% else %}
+				    <ul class="nav navbar-nav ml-auto">
+				    	<li class="nav-item">
+				    		<a class="nav-link" href="{{ path_for('login') }}">ENTRAR<span class="sr-only">(current)</span></a>
+				    	</li>
+				    	<li class="nav-item">
+				    		<a class="nav-link" href="#">REGISTRO<span class="sr-only">(current)</span></a>
+				    	</li>
+				    </ul>
 
-		    <ul class="nav navbar-nav ml-auto">
-		    	<li class="nav-item">
-		    		<a class="nav-link" href="{{ path_for('login') }}">ENTRAR<span class="sr-only">(current)</span></a>
-		    	</li>
-		    	<li class="nav-item">
-		    		<a class="nav-link" href="#">REGISTRO<span class="sr-only">(current)</span></a>
-		    	</li>
-		    </ul>
+			  	{% endif %}
 
-	  	{% endif %}
-
-	  </div>
-	</nav>
-	
-	<div id="films" class="row">
-		{% block list_films %}{% endblock %}
+		  	</div>
+		</nav>		
 	</div>
-	<div id="film" class="row">
-		{% block film %}{% endblock %}
+	<div class="container mt-5">
+			{% block admin %}{% endblock %}
+	</div>	
+	<div class="container mt-5">
+		<div id="films" class="row d-flex justify-content-around">
+			{% block list_films %}{% endblock %}
+		</div>		
 	</div>
-	<div class="container-fluid footer">
+	<div class="container mb-5">
+		<div id="film" class="row">
+			{% block film %}{% endblock %}
+		</div>		
+	</div>
+
+	<div class="container fixed-bottom bg-dark">
 	{% block footer %}
-		<div class="row footer-row">
-			<div class="author">
-				<p>Creado por David Ignacio Martos</p>
+		<div class="row justify-content-between align-items-center">
+			<div class="align-items-center">
+				<p class="author text-white font-weight-light font-italic">Creado por David Ignacio Martos</p>
 			</div>
 			<div class="social-button">
 		  		<a href="https://www.facebook.com" class="fa fa-2x fa-facebook-square"></a>
@@ -82,5 +91,7 @@
 		</div>
 	{% endblock %}		
 	</div>
+	{% block js %}
+	{% endblock %}
 </body>
 </html>
