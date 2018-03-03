@@ -4,18 +4,16 @@ body{
   background-color: black;
 }
 
-#poster{
-  /*display: flex;*/
-  align-items: left;
-}
-
+/*#poster{
+  
+  width: 200%;
+}*/
+/*
 #film{
   align-items: left;
 }
 
-#film td{
-  color: white;
-}
+
 
 
 .footer{
@@ -35,13 +33,15 @@ body{
   align-items: center;
 
 }
-
-.footer-row p{
+*/
+.author{
   font-style: italic;
   font-size: 10px;
-  text-align: center;
 }
 
+#film td{
+  color: white;
+/*}
 footer .social-button{
   text-align: center;
-}
+}*/
