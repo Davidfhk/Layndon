@@ -1,0 +1,26 @@
+{% extends 'master.twig' %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../../App/layndon/css/starrr.css">
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="../../App/layndon/js/user/starrr.js"></script>
+    <script>
+       $('.star').starrr({
+           rating:0,
+           change:function(e,valor){
+               alert(valor);
+               
+           }
+           
+       });
+    </script>
+{% endblock %}
+{% block user %}
+    <div class="container">
+    	<div class="row">
+            <span class="rating">
+              <span class="star"></span>
+            </span>
+        </div>
+    </div>
+{% endblock %}
