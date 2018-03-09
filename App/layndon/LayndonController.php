@@ -106,4 +106,10 @@ class LayndonController
 		return $response->withRedirect($this->route->pathFor('home'));
 	}
 
+        public function vote (Request $request, Response $response, $args)
+        {
+        	return $this->view->render($response,'user/profile.twig');
+        }
+
+
 }
