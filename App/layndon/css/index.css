@@ -5,46 +5,14 @@ body{
 }
 
 #date-film{
-  text-align: center;
-  font-family: cursive;
   font-size: 25px;
-  color: white;
 }
 
-/*#poster{
-  display:block;
-  margin:0 auto 0 auto;
-  width: 90%; height: 90%;
-}
-*/
 #films div{
   cursor:pointer;
 }
 
-
-/*.footer{
-    position: fixed;   
-    bottom: 0;
-    width: 100%;
-    background-color: #202020;
-    color: white;
-    
-}
-
-.footer-row{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-
-}*/
-
 .author{
-  font-style: italic;
   font-size: 10px;
 }
 
-/*footer .social-button{
-  text-align: center;
-}*/

@@ -4,44 +4,10 @@ body{
   background-color: black;
 }
 
-/*#poster{
-  
-  width: 200%;
-}*/
-/*
-#film{
-  align-items: left;
-}
-
-
-
-
-.footer{
-    position: fixed;   
-    bottom: 0;
-    width: 100%;
-    background-color: #202020;
-    color: white;
-    
-}
-
-.footer-row{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-
-}
-*/
 .author{
-  font-style: italic;
   font-size: 10px;
 }
 
 #film td{
   color: white;
-/*}
-footer .social-button{
-  text-align: center;
-}*/
+}
