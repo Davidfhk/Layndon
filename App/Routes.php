@@ -17,7 +17,7 @@ $app->group('/layndon', function (){
 			$this->put('/edit/{id}', 'LayndonController:editFilm')->setName('edit-film');
 		});
 	});
-
+        $this->get('/vote','LayndonController:vote')->setName('vote-film');
 	$this->get('/film/{id}','LayndonController:detailsFilm')->setName('details-film');
 });
 
