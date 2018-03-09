@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{% block head %}
 	<title>Document</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,8 +12,10 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+
 	<script type="text/javascript" src="../App/layndon/js/user/details-film.js"></script>
-	{% endblock %}
+
 </head>
 <body>
 
@@ -30,7 +31,7 @@
 			        <a class="nav-link" href="#">PELICULAS<span class="sr-only">(current)</span></a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="#">VOTA</a>
+			        <a class="nav-link" href="{{ path_for('vote-film') }}">VOTA</a>
 			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link" href="#">CONTACTO</a>
@@ -66,7 +67,10 @@
 	</div>
 	<div class="container mt-5">
 			{% block admin %}{% endblock %}
-	</div>	
+	</div>
+        <div class="container mt-5">
+                        {% block user %}{% endblock %}
+        </div>        	
 	<div class="container mt-5">
 		<div id="films" class="row d-flex justify-content-around">
 			{% block list_films %}{% endblock %}
