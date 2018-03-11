@@ -1,18 +1,24 @@
 {% extends 'master.twig' %}
 
 {% block css %}
-	<link rel="stylesheet" type="text/css" href="../App/layndon/css/index.css">
+	<link rel="stylesheet" type="text/css" href="../../App/layndon/css/index.css">
 {% endblock %}
 
 {% block list_films %}
 {% if films is not empty %}
  
     {% for film in films %}
-    	<div id="{{film.id_film}}" class="" title="{{film.title}}">
-    		<a href="{{ path_for ('details-film',{'id': film.id_film}) }}"></a>
-    		<img id='poster' src= {{film.image}} class="" width='200' height="300">
-    		<p id="date-film">{{film.date}}</p>
-    	</div>
+	    	<div id="{{film.id_film}}" class="" title="{{film.title}}">
+	    		<a href="{{ path_for ('details-film',{'id': film.id_film}) }}"></a>
+	    		<img id='poster' src= {{film.image}} class="" width='200' height="300">
+	    		<p id="date-film" class="text-center display-4 text-info font-italic">{{film.date}}</p>
+	    	</div>
     {% endfor %}
 {% endif %}
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript" src="../../App/layndon/js/user/details-film.js"></script>
+
 {% endblock %}
