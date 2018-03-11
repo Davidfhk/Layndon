@@ -20,96 +20,101 @@ class LayndonController
 		$this->route = $route;
 		$this->view = $view;
 	
-	}
+    }
 
-	public function home (Request $request, Response $response, $args)
-	{
-		
-		$films = $this->model->getFilms();
+    public function home (Request $request, Response $response, $args)
+    {
+    	return $this->view->render($response,'layndon.twig');
+    }
 
-		if (isset($_SESSION['login'])) {
+    public function films (Request $request, Response $response, $args)
+    {
+    	
+    	$films = $this->model->getFilms();
 
-			return $this->view->render($response, 'list-films.twig',['films'=>$films,'session' => $_SESSION['login']]);
-		}else{
+    	if (isset($_SESSION['login'])) {
 
-			return $this->view->render($response, 'list-films.twig',['films'=>$films]);
-		}
-		
-	}
+    		return $this->view->render($response, 'list-films.twig',['films'=>$films,'session' => $_SESSION['login']]);
+    	}else{
 
-	public function login (Request $request, Response $response, $args)
-	{
-		return $this->view->render($response,'login.twig');
-	}
+    		return $this->view->render($response, 'list-films.twig',['films'=>$films]);
+    	}
+    	
+    }
 
-	public function check (Request $request, Response $response, $args)
-	{
-		$user = $this->model->checkLogin();
+    public function login (Request $request, Response $response, $args)
+    {
+    	return $this->view->render($response,'login.twig');
+    }
 
-		$_SESSION['login'] = $user;
-		
-		if($_SESSION['login'] == 'admin')
-		{
-			return $response->withRedirect($this->route->pathFor('home'));
-		}else{
-			return $response->withRedirect($this->route->pathFor('login'));	
-		}
-	}
+    public function check (Request $request, Response $response, $args)
+    {
+    	$user = $this->model->checkLogin();
 
-	public function adminProfile (Request $request, Response $response, $args)
-	{
-		if($_SESSION['login'] == 'admin')
-		{
-			$films = $this->model->getFilms();
-			return $this->view->render($response,'admin/profile.twig',['films'=>$films, 'session' => $_SESSION['login']]);				
-		}else{
-			return $response->withRedirect($this->route->pathFor('login'));
-		}
-	
-	}
+    	$_SESSION['login'] = $user;
+    	
+    	if($_SESSION['login'] == 'admin')
+    	{
+    		return $response->withRedirect($this->route->pathFor('home'));
+    	}else{
+    		return $response->withRedirect($this->route->pathFor('login'));	
+    	}
+    }
 
-	public function addFilm (Request $request, Response $response, $args)
-	{
-     	$name = $_POST['film'];
-     	$date = $_POST['date-film'];
-     	$this->model->setFilm($name,$date);
+    public function adminProfile (Request $request, Response $response, $args)
+    {
+    	if($_SESSION['login'] == 'admin')
+    	{
+    		$films = $this->model->getFilms();
+    		return $this->view->render($response,'admin/profile.twig',['films'=>$films, 'session' => $_SESSION['login']]);				
+    	}else{
+    		return $response->withRedirect($this->route->pathFor('login'));
+    	}
+    
+    }
 
-     	return $response->withRedirect($this->route->pathFor('admin'));		
-	}
+    public function addFilm (Request $request, Response $response, $args)
+    {
+ 	$name = $_POST['film'];
+ 	$date = $_POST['date-film'];
+ 	$this->model->setFilm($name,$date);
 
-	public function deleteFilm (Request $request, Response $response, $args)
-	{
-		$id = $args['id'];
-		$this->model->deleteFilm($id);
+ 	return $response->withRedirect($this->route->pathFor('admin'));		
+    }
 
-	}
+    public function deleteFilm (Request $request, Response $response, $args)
+    {
+    	$id = $args['id'];
+    	$this->model->deleteFilm($id);
 
-	public function detailsFilm (Request $request, Response $response, $args)
-	{
-		$id = $args['id'];
-		$film = $this->model->detailsFilm($id);
+    }
 
-		if(isset($_SESSION['login']))
-		{
-			return $this->view->render($response,'film.twig',['film'=>$film,'session'=>$_SESSION['login']]);
+    public function detailsFilm (Request $request, Response $response, $args)
+    {
+    	$id = $args['id'];
+    	$film = $this->model->detailsFilm($id);
 
-		}else{
+    	if(isset($_SESSION['login']))
+    	{
+    		return $this->view->render($response,'film.twig',['film'=>$film,'session'=>$_SESSION['login']]);
 
-			return $this->view->render($response,'film.twig',['film'=>$film]);
-		}
-		
-	}
+    	}else{
 
-	public function logOut (Request $request, Response $response, $args)
-	{
-		session_destroy();
-		return $response->withRedirect($this->route->pathFor('home'));
-	}
+    		return $this->view->render($response,'film.twig',['film'=>$film]);
+    	}
+    	
+    }
 
-        public function vote (Request $request, Response $response, $args)
-        {
-        	return $this->view->render($response,'user/profile.twig');
-        }
+    public function logOut (Request $request, Response $response, $args)
+    {
+    	session_destroy();
+    	return $response->withRedirect($this->route->pathFor('home'));
+    }
+
+    public function vote (Request $request, Response $response, $args)
+    {
+    	return $this->view->render($response,'user/profile.twig');
+    }
 
 
 }
