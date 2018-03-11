@@ -24,7 +24,13 @@ class LayndonController
 
     public function home (Request $request, Response $response, $args)
     {
-    	return $this->view->render($response,'layndon.twig');
+        if (isset($_SESSION['login'])) {
+
+                return $this->view->render($response, 'layndon.twig',['session' => $_SESSION['login']]);
+        }else{
+
+                return $this->view->render($response, 'layndon.twig');
+        }
     }
 
     public function films (Request $request, Response $response, $args)
