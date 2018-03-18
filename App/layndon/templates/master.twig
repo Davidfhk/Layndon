@@ -15,73 +15,69 @@
 
 </head>
 <body>
-	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		  	<a class="navbar-brand" href="{{ path_for('home')}}">LAYNDON</a>
-		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-		  	</button>
-		  	<div class="navbar-collapse collapse" id="navbarNav">
-			    <ul class="navbar-nav">
-			      <li class="nav-item">
-			        <a class="nav-link" href="{{ path_for('films')}}">PELICULAS</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#">CONTACTO</a>
-			      </li>
-			    </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+      	<a class="navbar-brand" href="{{ path_for('home')}}">LAYNDON</a>
+      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    	    <span class="navbar-toggler-icon"></span>
+      	</button>
+      	<div class="navbar-collapse collapse" id="navbarNav">
+    	    <ul class="navbar-nav">
+    	      <li class="nav-item">
+    	        <a class="nav-link" href="{{ path_for('films')}}">PELICULAS</a>
+    	      </li>
+    	      <li class="nav-item">
+    	        <a class="nav-link" href="{{ path_for('contact')}}">CONTACTO</a>
+    	      </li>
+    	    </ul>
+    	   	{% if session == 'admin' %}
 
-			   	{% if session == 'admin' %}
+      		    <ul class="nav navbar-nav ml-auto">
+    		    	<li class="nav-item">
+    		    		<a class="nav-link" href="{{ path_for('admin') }}">ADMIN</a>
+    		    	</li>
+    		    	<li class="nav-item">
+    		    		<a class="nav-link" href="{{ path_for('log-out') }}">LOG OUT</a>
+    		    	</li>
+    		    </ul>
+    	  	{% endif %}
+      	</div>
+    </nav>		
+    <div class="container mt-5">
+                {% block history %}{% endblock %}
+    </div>
+    <div class="container mt-5">
+    		{% block admin %}{% endblock %}
+    </div>
+    <div class="container mt-5">
+                {% block user %}{% endblock %}
+    </div>        	
+    <div class="container mt-5">
+    	<div id="films" class="row d-flex justify-content-around">
+    		{% block list_films %}{% endblock %}
+    	</div>		
+    </div>
+    <div class="container mb-5">
+	<div id="film" class="row">
+    		{% block film %}{% endblock %}
+	</div>		
+    </div>
+    {% block contact %}{% endblock %}
+    	
+    <footer class="footer">
+        <div class="container bg-dark">
+            <div class="row justify-content-between align-items-center">
+                <div class="align-items-center">
+                    <p class="author text-white font-weight-light font-italic">Creado por David Ignacio Martos</p>
+                </div>
+                <div class="social-button">
+                    <a href="https://www.facebook.com" class="fa fa-2x fa-facebook-square"></a>
+                    <a href="https://www.twitter.com" class="fa fa-2x fa-twitter-square"></a>
+                </div>
+            </div>       
+        </div>   	
+    </footer>
 
-    		   			<ul class="nav navbar-nav ml-auto">
-				    	<li class="nav-item">
-				    		<a class="nav-link" href="{{ path_for('admin') }}">ADMIN</a>
-				    	</li>
-				    	<li class="nav-item">
-				    		<a class="nav-link" href="{{ path_for('log-out') }}">LOG OUT</a>
-				    	</li>
-				    </ul>
-
-			  	{% endif %}
-
-		  	</div>
-		</nav>		
-	</div>
-        <div class="container mt-5">
-                        {% block history %}{% endblock %}
-        </div>
-	<div class="container mt-5">
-			{% block admin %}{% endblock %}
-	</div>
-        <div class="container mt-5">
-                        {% block user %}{% endblock %}
-        </div>        	
-	<div class="container mt-5">
-		<div id="films" class="row d-flex justify-content-around">
-			{% block list_films %}{% endblock %}
-		</div>		
-	</div>
-	<div class="container mb-5">
-	    	<div id="film" class="row">
-			{% block film %}{% endblock %}
-	    	</div>		
-	</div>
-		
- 
-	<div class="container footer bg-dark">
-	{% block footer %}
-		<div class="row justify-content-between align-items-center">
-			<div class="align-items-center">
-				<p class="author text-white font-weight-light font-italic">Creado por David Ignacio Martos</p>
-			</div>
-			<div class="social-button">
-		  		<a href="https://www.facebook.com" class="fa fa-2x fa-facebook-square"></a>
-		  		<a href="https://www.twitter.com" class="fa fa-2x fa-twitter-square"></a>
-			</div>
-		</div>
-	{% endblock %}		
-	</div>
-	{% block js %}
-	{% endblock %}
+    {% block js %}
+    {% endblock %}
 </body>
 </html>
