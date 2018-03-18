@@ -117,9 +117,16 @@ class LayndonController
     	return $response->withRedirect($this->route->pathFor('home'));
     }
 
-    public function vote (Request $request, Response $response, $args)
+    public function contact (Request $request, Response $response, $args)
     {
-    	return $this->view->render($response,'user/profile.twig');
+        if(isset($_SESSION['login']))
+        {
+                return $this->view->render($response,'contact.twig',['session'=>$_SESSION['login']]);
+
+        }else{
+
+                return $this->view->render($response,'contact.twig');
+        }
     }
 
 
