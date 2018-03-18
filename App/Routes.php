@@ -5,7 +5,8 @@ $app->group('/layndon', function (){
 	$this->get('', 'LayndonController:home')->setName('home');
 	$this->get('/', 'LayndonController:logOut')->setName('log-out');
         $this->get('/films', 'LayndonController:films')->setName('films');
-
+        $this->get('/film/{id}','LayndonController:detailsFilm')->setName('details-film');
+        $this->get('/contact','LayndonController:contact')->setName('contact');
 
 	$this->group('/admin', function (){
 
@@ -20,7 +21,7 @@ $app->group('/layndon', function (){
 		});
 	});
         
-	$this->get('/film/{id}','LayndonController:detailsFilm')->setName('details-film');
+
 });
 
 
