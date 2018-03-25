@@ -5,54 +5,57 @@
 {% endblock %}
 
 {% block film %}
- 	
- 		{% for details in film %}
- 			<div class="col-sm-12 col-md-4 col-xl-3">
- 				<img id='poster' src= {{details.image}} class="img-fluid img-thumbnail">
- 			</div>
- 			<div class="col-sm-12 col-md-8 col-xl-9">
- 				<table class="list-group" id="film">
- 					<tr>
- 						<td>Titulo:</td>
- 						<td>{{details.title}}</td>
- 					</tr>		
-				    <tr>
-				        <td>Año:</td>
-				        <td>{{details.year}}</td>
-				    </tr>
-				    <tr>
-				        <td>Duración:</td>
-				        <td>{{details.runtime}}</td>
-				    </tr>
-				    <tr>
-				        <td>Genero:</td>
-				        <td>{{details.genre}}</td>
-				    </tr>
-				    <tr>
-				        <td>Director:</td>
-				        <td>{{details.director}}</td>
-				    </tr>
-				    <tr>
-				        <td>Actores:</td>
-				        <td>{{details.actors}}</td>
-				    </tr>
-				    <tr>
-				        <td>Lenguaje:</td>
-				        <td>{{details.language}}</td>
-				    </tr>
-				    <tr>
-				        <td>País:</td>
-				        <td>{{details.country}}</td>
-				    </tr>
-				    <tr>
-				        <td>Premios:</td>
-				        <td>{{details.awards}}</td>
-				    </tr>
-				    <tr>
-				        <td>Descripción:</td>
-				        <td>{{details.plot}}</td>
-				    </tr>
-				</table>
-			</div>
-    	{% endfor %}  			
+    <div class="container mb-5">
+        <div id="film" class="row">
+	 		{% for details in film %}
+	 			<div class="col-sm-12 col-md-4 col-xl-3">
+	 				<img id='poster' src= {{details.image}} class="img-fluid img-thumbnail">
+	 			</div>
+	 			<div class="col-sm-12 col-md-8 col-xl-9">
+	 				<table class="list-group" id="film">
+	 					<tr>
+	 						<td>Titulo:</td>
+	 						<td>{{details.title}}</td>
+	 					</tr>		
+					    <tr>
+					        <td>Año:</td>
+					        <td>{{details.year}}</td>
+					    </tr>
+					    <tr>
+					        <td>Duración:</td>
+					        <td>{{details.runtime}}</td>
+					    </tr>
+					    <tr>
+					        <td>Genero:</td>
+					        <td>{{details.genre}}</td>
+					    </tr>
+					    <tr>
+					        <td>Director:</td>
+					        <td>{{details.director}}</td>
+					    </tr>
+					    <tr>
+					        <td>Actores:</td>
+					        <td>{{details.actors}}</td>
+					    </tr>
+					    <tr>
+					        <td>Lenguaje:</td>
+					        <td>{{details.language}}</td>
+					    </tr>
+					    <tr>
+					        <td>País:</td>
+					        <td>{{details.country}}</td>
+					    </tr>
+					    <tr>
+					        <td>Premios:</td>
+					        <td>{{details.awards}}</td>
+					    </tr>
+					    <tr>
+					        <td>Descripción:</td>
+					        <td>{{details.plot}}</td>
+					    </tr>
+					</table>
+				</div>
+	    	{% endfor %}
+	    </div>
+	</div>  			
 {% endblock %}

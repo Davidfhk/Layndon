@@ -5,6 +5,7 @@
 {% endblock %} 
 
 {% block admin %}
+    <div class="container mt-5">
 	{% if films is not empty %}
 		<div class="table-responsive">
 			<table class="table table-bordered bg-white table-sm" id="films">
@@ -25,6 +26,7 @@
 			</table>
 		</div>			  
 	{% endif %}
+    </div>
 	<form  method="post" action="{{ path_for ('add-film') }}" class="form-inline justify-content-center flex-column flex-lg-row">
 		<div class="form-group my-2">
 			<label for="filmName" class="d-none d-md-block text-white" >PELICULA</label>
